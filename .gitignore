@@ -1,0 +1,50 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build cache
+*.o
+*.a
+*.lo
+*.la
+*.al
+*.gch
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Dependency directories (Go modules will handle this)
+vendor/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.iml
+
+# Beego specific
+# Logs
+logs/
+*.log
+
+# Generated files
+static/upload/
+static/cache/
+
+# Configs (optional, if you don't want to commit local configs)
+conf/app.conf
+.env
+
+# Beego tmp run files
+runtime/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+
