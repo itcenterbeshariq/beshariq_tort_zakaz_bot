@@ -18,6 +18,8 @@
 *.swo
 *.tmp
 *.log
+*.db
+
 
 # Dependency directories (Go modules will handle this)
 vendor/
