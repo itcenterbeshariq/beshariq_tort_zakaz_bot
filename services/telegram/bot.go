@@ -10,6 +10,8 @@ import (
 
 func Bot() {
 
+	// sss
+
 	token := beego.AppConfig.DefaultString("telegram::token", "")
 
 	pref := telebot.Settings{
