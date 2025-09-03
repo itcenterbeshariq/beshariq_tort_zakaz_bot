@@ -25,7 +25,7 @@ func InitDB() {
 func migrate() {
 	err := DB.AutoMigrate(
 		&models.User{},
-		&models.Product{},
+		&models.Contact{},
 	)
 
 	if err != nil {
