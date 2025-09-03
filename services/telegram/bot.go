@@ -1,6 +1,7 @@
 package telegram
 
 import (
+	"beshariq_tort_zakaz_bot/services/telegram/hendlers"
 	beego "github.com/beego/beego/v2/server/web"
 	"gopkg.in/telebot.v4"
 	"log"
@@ -8,8 +9,6 @@ import (
 )
 
 func Bot() {
-
-	// sss
 
 	token := beego.AppConfig.DefaultString("telegram::token", "")
 
@@ -24,10 +23,7 @@ func Bot() {
 		return
 	}
 
-	b.Handle("/start", func(c telebot.Context) error {
-		return c.Send("Assalomu alaykum! 👋\nSiz Beshariq To‘rt Zakaz Botiga xush kelibsiz.\n\n📌 Bu bot orqali siz:\n1️⃣ To‘rt buyurtma qilishingiz mumkin\n2️⃣ Narxlar va menyu bilan tanishishingiz mumkin\n3️⃣ Buyurtmangizni tez va oson rasmiylashtirishingiz mumkin\n\n" +
-			"👉 Quyidagi tugmalardan foydalanib davom eting:\n\n🍰 Menyu\n\n🛒 Buyurtma berish\n\n📞 Aloqa")
-	})
+	b.Handle(telebot.OnText, hendlers.Text)
 
 	b.Start()
 }
