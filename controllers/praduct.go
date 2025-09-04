@@ -2,27 +2,29 @@ package controllers
 
 import (
 	"beshariq_tort_zakaz_bot/models"
-	"github.com/beego/beego/v2/server/web"
+	beego "github.com/beego/beego/v2/server/web"
 	"strconv"
 	"time"
 )
 
 type ProductController struct {
-	web.Controller
+	beego.Controller
 }
 
-type ProductMalumot struct {
-	web.Controller
+type ProductMalumotController struct {
+	beego.Controller
 }
 
+// oddiy xotira (DB o‘rnida)
 var products []models.Product
 
-func (c *ProductController) Get() {
-	c.Data["Products"] = products
+// GET /product → mahsulot qo‘shish formasi
+func (c *ProductController) Product() {
 	c.TplName = "product.html"
 }
 
-func (c *ProductController) Post() {
+// POST /product → mahsulotni saqlash
+func (c *ProductController) ProductPost() {
 	price, _ := strconv.Atoi(c.GetString("price"))
 	weight, _ := strconv.ParseFloat(c.GetString("weight"), 64)
 
@@ -36,10 +38,11 @@ func (c *ProductController) Post() {
 	}
 
 	products = append(products, product)
-	c.Redirect("product/product", 302)
+	c.Redirect("/malumot", 302) // saqlangandan keyin mahsulot ro‘yxatiga yo‘naltiradi
 }
 
-func (c *ProductMalumot) Get() {
+// GET /malumot → saqlangan mahsulotlar ro‘yxati
+func (c *ProductMalumotController) Malumot() {
 	c.Data["Products"] = products
-	c.TplName = "malumt.html"
+	c.TplName = "malumot.html"
 }
