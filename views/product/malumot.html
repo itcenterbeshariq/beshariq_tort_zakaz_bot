@@ -2,41 +2,62 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Mahsulot ma’lumotlari</title>
+    <title>Mahsulot qo‘shish</title>
     <link rel="stylesheet" href="../../static/bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../static/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
-<div class="container mt-5">
-    <div class="card-footer text-end" style="margin-top: -40px">
-        <a href="/product" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i> Yangi mahsulot qo‘shish
-        </a>
+
+<div class="container py-5">
+    <h1 class="text-center mb-4">🛒 Yangi mahsulot qo‘shish</h1>
+
+    <!-- Forma -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body">
+            <form method="post" action="/product">
+                <div class="mb-3">
+                    <label class="form-label">Surat URL</label>
+                    <input type="text" class="form-control" name="image_url" placeholder="https://...">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Vazn (kg)</label>
+                    <input type="text" class="form-control" name="weight" placeholder="1.5">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Narx (so‘m)</label>
+                    <input type="text" class="form-control" name="price" placeholder="10000">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Izoh</label>
+                    <textarea class="form-control" name="description" rows="3" placeholder="Mahsulot haqida..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">💾 Saqlash</button>
+            </form>
+        </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card p-3 shadow-lg rounded-4">
-                <img src="{{ image_url }}" class="card-img-top rounded-top-4" alt="Mahsulot rasmi">
-
+    <!-- Saqlangan mahsulotlar -->
+    <h2 class="mb-3">📋 Saqlangan mahsulotlar</h2>
+    <div class="row">
+        {{range .Products}}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <img src="{{.ImageURL}}" class="card-img-top" alt="rasm">
                 <div class="card-body">
-                    <h5 class="card-title">Mahsulot ma’lumotlari</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <strong>Og‘irligi:</strong> {{ weight }} kg
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Narxi:</strong> {{ price }} so‘m
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Izoh:</strong> {{ description }}
-                        </li>
-                    </ul>
+                    <h5 class="card-title">{{.Price}} so‘m</h5>
+                    <p class="card-text">
+                        <b>Vazn:</b> {{.Weight}} kg <br>
+                        <b>Izoh:</b> {{.Description}} <br>
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    Qo‘shilgan: {{.CreatedAt}}
                 </div>
             </div>
         </div>
+        {{end}}
     </div>
 </div>
-<script src="../../static/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

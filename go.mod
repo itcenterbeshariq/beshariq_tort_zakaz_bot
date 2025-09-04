@@ -5,6 +5,7 @@ go 1.24
 require github.com/beego/beego/v2 v2.1.0
 
 require (
+	github.com/glebarez/sqlite v1.11.0
 	github.com/smartystreets/goconvey v1.6.4
 	gopkg.in/telebot.v4 v4.0.0-beta.5
 	gorm.io/gorm v1.30.2
@@ -15,7 +16,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/glebarez/go-sqlite v1.21.2 // indirect
-	github.com/glebarez/sqlite v1.11.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
