@@ -41,3 +41,8 @@ func (c *AuthController) Login() {
 
 	c.Redirect("/", 302)
 }
+
+func (c *AuthController) Logout() {
+	_ = c.DelSession("admin")
+	c.Redirect("/login", 302)
+}
