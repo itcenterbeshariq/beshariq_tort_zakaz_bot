@@ -26,6 +26,7 @@ func migrate() {
 	err := DB.AutoMigrate(
 		&models.User{},
 		&models.Contact{},
+		&models.Product{},
 	)
 
 	if err != nil {
