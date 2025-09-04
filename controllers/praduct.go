@@ -41,5 +41,5 @@ func (c *ProductController) Post() {
 
 func (c *ProductMalumot) Get() {
 	c.Data["Products"] = products
-	c.TplName = "malumt.html"
+	c.TplName = "malumot.html"
 }
