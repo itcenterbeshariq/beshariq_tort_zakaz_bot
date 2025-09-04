@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahsulot qo‘shish</title>
+    <link rel="stylesheet" href="../../static/bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-3 shadow-lg rounded-4">
+                <form method="POST" action="product/product" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Rasm yuklash</label>
+                        <input type="file" name="image" class="form-control" accept="image/*" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Og‘irligi (kg)</label>
+                        <input type="text" name="weight" class="form-control" placeholder="Masalan: 1.5" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Narxi (so‘m)</label>
+                        <input type="number" name="price" class="form-control" placeholder="Masalan: 250.000uzs"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Izoh</label>
+                        <textarea name="description" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-save"></i> Saqlash
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../static/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

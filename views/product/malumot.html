@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahsulot ma’lumotlari</title>
+    <link rel="stylesheet" href="../../static/bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="card-footer text-end" style="margin-top: -40px">
+        <a href="/product" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Yangi mahsulot qo‘shish
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-3 shadow-lg rounded-4">
+                <img src="{{ image_url }}" class="card-img-top rounded-top-4" alt="Mahsulot rasmi">
+
+                <div class="card-body">
+                    <h5 class="card-title">Mahsulot ma’lumotlari</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Og‘irligi:</strong> {{ weight }} kg
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Narxi:</strong> {{ price }} so‘m
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Izoh:</strong> {{ description }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../static/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
