@@ -24,7 +24,7 @@ func (c *ProductController) Product() {
 }
 
 // POST /product → mahsulotni saqlash
-func (c *ProductController) ProductPost() {
+func (c *ProductController) Post() {
 	price, _ := strconv.Atoi(c.GetString("price"))
 	weight, _ := strconv.ParseFloat(c.GetString("weight"), 64)
 
@@ -41,7 +41,6 @@ func (c *ProductController) ProductPost() {
 	c.Redirect("/malumot", 302) // saqlangandan keyin mahsulot ro‘yxatiga yo‘naltiradi
 }
 
-// GET /malumot → saqlangan mahsulotlar ro‘yxati
 func (c *ProductMalumotController) Malumot() {
 	c.Data["Products"] = products
 	c.TplName = "malumot.html"
